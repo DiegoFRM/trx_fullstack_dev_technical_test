@@ -10,26 +10,9 @@ import {
 } from "../controllers/cars.controller.js";
 
 const router = Router();
-const carParams = [
-  "placa",
-  "numero_economico",
-  "vin",
-  "asientos",
-  "seguro_nombre",
-  "seguro_numero",
-  "BRAND",
-  "MODEL",
-  "YEAR",
-  "COLOR",
-];
 
 
-for(let i = 0; i<=carParams.length-1;i++){
-  router.get("/searchcar/"+carParams[i]+"/:" + carParams[i],searchCar);
-}
-
-
-
+router.get("/searchcar",searchCar);
 
 router.get("/cars", getCars);
 router.get("/cars/:id", getCar);

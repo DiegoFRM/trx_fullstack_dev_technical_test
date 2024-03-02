@@ -37,8 +37,10 @@ export const createCar = async (req, res) => {
 
 
 export const searchCar = async (req,res) =>{
-  const car = await Car.find(req.params)
-  if (!car) return res.status(404).json({ message: "car not found" });
+  const queryString = req.query
+  const car = await Car.find(queryString)
+  console.log(car)
+  if (!car || car == "") return res.status(404).json({ message: "cars not found" });
   res.json(car);
 }
 
