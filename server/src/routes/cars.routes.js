@@ -6,13 +6,9 @@ import {
   updateCar,
   deleteCar,
   createCar,
-  searchCar,
 } from "../controllers/cars.controller.js";
 
 const router = Router();
-
-
-router.get("/searchcar",searchCar);
 
 router.get("/cars", getCars);
 router.get("/cars/:id", getCar);

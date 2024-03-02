@@ -1,9 +1,12 @@
 import Car from "../models/car.model.js";
 
 export const getCars = async (req, res) => {
-  const Cars = await Car.find();
+  const queryString = req.query
+  const Cars = await Car.find(queryString);
+  if (!Cars || Cars == "") return res.status(404).json({ message: "cars not found" });
   res.json(Cars);
 };
+
 export const createCar = async (req, res) => {
   const {
     placa,
@@ -34,15 +37,6 @@ export const createCar = async (req, res) => {
   const savedCar = await newCar.save();
   res.json(savedCar);
 };
-
-
-export const searchCar = async (req,res) =>{
-  const queryString = req.query
-  const car = await Car.find(queryString)
-  console.log(car)
-  if (!car || car == "") return res.status(404).json({ message: "cars not found" });
-  res.json(car);
-}
 
 export const getCar = async (req, res) => {
   const car = await Car.findById(req.params.id);
