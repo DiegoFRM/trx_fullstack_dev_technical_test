@@ -6,3 +6,9 @@ body{
   background-color: #202020;
   color: white;
 }
+
+.div-register{
+  height: 80%;
+  position: absolute;
+  width: 100%;
+}

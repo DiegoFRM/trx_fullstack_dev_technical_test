@@ -1,10 +1,15 @@
 import Car from "../models/car.model.js";
 
 export const getCars = async (req, res) => {
-  const queryString = req.query
-  const Cars = await Car.find(queryString);
-  if (!Cars || Cars == "") return res.status(404).json({ message: "cars not found" });
-  res.json(Cars);
+  const queryString = req.query;
+  try {
+    const Cars = await Car.find(queryString);
+    if (!Cars || Cars == "")
+      return res.status(404).json({ message: "cars not found" });
+    res.json(Cars);
+  } catch (error) {
+    return res.status(500).json({ message: "Something went wrong" });
+  }
 };
 
 export const createCar = async (req, res) => {

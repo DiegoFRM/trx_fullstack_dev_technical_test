@@ -52,6 +52,13 @@ const carSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    id: true,
+    toJSON: {
+      transform(doc, ret){
+        ret.id = ret._id
+        delete ret._id
+      }
+    }
   }
 );
 

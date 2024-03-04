@@ -1,14 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Carform from "./pages/CarForm";
+import CarList from "./pages/CarList";
+import Navbar from "./components/Navbar";
+import { CarProvider } from "./context/CarContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<h1>Home page</h1>} />
-        <Route path="/map" element={<h1>map page</h1>} />
-        <Route path="/create-car" element={<h1>Create new car</h1>} />
-      </Routes>
-    </BrowserRouter>
+    <CarProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<h1>Home page</h1>} />
+          <Route path="/car-list" element={<CarList />} />
+          <Route path="/create-car" element={<Carform />} />
+        </Routes>
+      </BrowserRouter>
+    </CarProvider>
   );
 }
 
