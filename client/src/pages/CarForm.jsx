@@ -1,14 +1,21 @@
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { useCars } from "../context/CarContext";
+import Swal from "sweetalert2"
 
 function Carform() {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, reset  } = useForm();
   const { createCar } = useCars();
 
   const onSubmit = handleSubmit(async (values) => {
-    console.log("Registrar AUTO");
+    const  coordenadas = [{lat:Number,lng:Number}];
+    console.log("Registrar AUTO 3");
+    values["viajes"] = {"coordenadas":coordenadas} 
     console.log(values)
+    //reset();
+    //createCar(values);
+    Swal.fire("¡Se registro con éxito el auto!");
+
   });
 
   return (

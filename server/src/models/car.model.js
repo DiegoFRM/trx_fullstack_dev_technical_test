@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { isObjectIdOrHexString } from "mongoose";
 
 const carSchema = new mongoose.Schema(
   {
@@ -49,6 +49,10 @@ const carSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    viajes:{
+      type:Object,
+      required:true,
+    }
   },
   {
     timestamps: true,

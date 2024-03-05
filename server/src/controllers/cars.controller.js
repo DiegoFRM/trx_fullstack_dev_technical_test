@@ -13,6 +13,8 @@ export const getCars = async (req, res) => {
 };
 
 export const createCar = async (req, res) => {
+
+
   const {
     placa,
     numero_economico,
@@ -24,6 +26,7 @@ export const createCar = async (req, res) => {
     MODEL,
     YEAR,
     COLOR,
+    viajes,
   } = req.body;
 
   const newCar = new Car({
@@ -37,8 +40,10 @@ export const createCar = async (req, res) => {
     MODEL,
     YEAR,
     COLOR,
+    viajes
   });
 
+console.log(newCar)
   const savedCar = await newCar.save();
   res.json(savedCar);
 };

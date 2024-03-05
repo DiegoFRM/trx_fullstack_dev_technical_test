@@ -12,3 +12,15 @@ body{
   position: absolute;
   width: 100%;
 }
+
+.table-style{
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+}
+
+.css-az8st9-MuiDataGrid-root .MuiDataGrid-cellContent {
+  font-weight: 200;
+}
+
+.css-az8st9-MuiDataGrid-root .MuiDataGrid-withBorderColor {
+  border-color: rgba(0, 0, 0, 1) !important;
+}

@@ -1,7 +1,8 @@
 import banner from "../assets/nissan_banner.jpg";
 import { useEffect, useState } from "react";
 import { useCars } from "../context/CarContext";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid,GridToolbarFilterButton,GridLogicOperator   } from "@mui/x-data-grid";
+
 
 function CarList() {
   const { getCars, Cars } = useCars();
@@ -34,18 +35,22 @@ function CarList() {
       {loading ? (
         <p>Cargando...</p>
       ) : (
-        <div>
+        <div className="container mx-auto px-4">
           <img className="w-full" src={banner} />
           <div className="bg-zinc-500">
             <DataGrid
+            className="table-style"
               disableRowSelectionOnClick
               disableColumnMenu
+              
               columns={columns}
               rows={Cars}
+              
               initialState={{
                 pagination: {
                   paginationModel: { page: 0, pageSize: 5 },
-                },
+                }, 
+                
               }}
             />
           </div>
