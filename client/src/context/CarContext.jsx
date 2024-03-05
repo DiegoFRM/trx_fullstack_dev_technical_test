@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { createCarRequest, CarsRequest } from "../api/carApi";
+import { createCarRequest, CarsRequest,CarRequest,CarUpdate } from "../api/carApi";
 
 const CarContext = createContext();
 
@@ -27,10 +27,28 @@ export function CarProvider({ children }) {
     }
   };
 
+  const getCar = async (id) => {
+    try {
+      const res = await CarRequest(id);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const createCar = async (car) => {
     const res = await createCarRequest(car);
     console.log(res);
   };
+
+  const updateCar = async (id, car) =>{
+    try {
+      const res = await CarUpdate(id, car);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <CarContext.Provider
@@ -38,6 +56,8 @@ export function CarProvider({ children }) {
         Cars,
         createCar,
         getCars,
+        getCar,
+        updateCar,
       }}
     >
       {children}

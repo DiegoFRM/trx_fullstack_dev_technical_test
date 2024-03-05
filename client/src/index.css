@@ -24,3 +24,7 @@ body{
 .css-az8st9-MuiDataGrid-root .MuiDataGrid-withBorderColor {
   border-color: rgba(0, 0, 0, 1) !important;
 }
+
+.MuiDataGrid-selectedRowCount{
+  opacity: 0 !important;
+}
